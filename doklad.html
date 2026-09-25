@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Доклад: что говорить — Известные физики (7 класс)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2563EB; --purple:#7C3AED; --pink:#EC4899; --orange:#F97316;
+    --blue-l:#E4EDFF; --line:#E7EBF5; --bg:#F3F5FD; --ink:#0F172A; --body:#39435A; --muted:#6B7793;
+    --shadow:0 22px 50px rgba(15,23,42,.13); --shadow-sm:0 8px 22px rgba(15,23,42,.07);
+    --r:26px; --fh:'Poppins','Segoe UI',system-ui,sans-serif; --fb:'Inter','Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--fb); color:var(--ink); min-height:100vh; display:flex; flex-direction:column;
+    background:
+      radial-gradient(1000px 600px at 92% -14%, rgba(124,58,237,.16), transparent 60%),
+      radial-gradient(880px 560px at -10% 114%, rgba(236,72,153,.13), transparent 60%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  header{position:sticky; top:0; z-index:60; background:rgba(255,255,255,.86); backdrop-filter:blur(16px); border-bottom:1px solid var(--line)}
+  header::after{content:''; display:block; height:3px; background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink),var(--orange))}
+  .bar{max-width:1100px; margin:0 auto; padding:12px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .brand{display:flex; align-items:center; gap:13px; font-family:var(--fh); font-weight:800; font-size:18px; letter-spacing:-.02em}
+  .logo{width:46px; height:46px; border-radius:15px; display:grid; place-items:center; flex:0 0 auto;
+    background:linear-gradient(135deg,var(--blue),var(--purple) 55%,var(--pink)); box-shadow:0 10px 22px rgba(124,58,237,.35)}
+  .brand small{display:block; font-family:var(--fb); font-weight:600; font-size:12px; color:var(--muted); letter-spacing:0}
+  /* кнопка переключения темы: светлая ↔ тёмная */
+  .themeBtn{margin-left:auto; flex:0 0 auto; width:44px; height:44px; border-radius:14px; border:1px solid var(--line);
+    background:#fff; color:var(--ink); font-size:19px; line-height:1; cursor:pointer; display:grid; place-items:center;
+    transition:.18s; box-shadow:var(--shadow-sm)}
+  .themeBtn:hover{transform:translateY(-2px)}
+  .back{margin-left:auto; display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-family:var(--fh); font-weight:700;
+    font-size:14.5px; color:var(--blue); background:#fff; border:1px solid var(--line); padding:11px 20px; border-radius:13px;
+    box-shadow:var(--shadow-sm); transition:.18s}
+  .back:hover{transform:translateY(-2px); box-shadow:0 12px 24px rgba(15,23,42,.12)}
+  main{flex:1; width:100%; max-width:1100px; margin:0 auto; padding:26px 22px 60px}
+  .progress{height:7px; background:#E2E7F3; border-radius:999px; overflow:hidden; margin-bottom:22px}
+  .progress > i{display:block; height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink)); transition:width .35s ease}
+  .wrap{display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap}
+  .card{flex:1; min-width:320px; background:#fff; border-radius:var(--r); box-shadow:var(--shadow); padding:36px 42px; border:1px solid var(--line); position:relative; overflow:hidden}
+  .card::after{content:''; position:absolute; top:0; left:0; right:0; height:7px; background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink),var(--orange))}
+  .top{display:flex; align-items:center; gap:14px; margin-bottom:20px; flex-wrap:wrap}
+  .num{font-family:var(--fh); font-weight:800; color:#fff; background:linear-gradient(135deg,var(--blue),var(--purple));
+    min-width:52px; height:52px; padding:0 12px; border-radius:15px; display:grid; place-items:center; font-size:18px}
+  .title{font-family:var(--fh); font-size:clamp(20px,2.4vw,29px); font-weight:800; letter-spacing:-.02em; line-height:1.15}
+  .script{font-size:clamp(18px,1.9vw,23px); line-height:1.85; color:#26303F}
+  .side{width:250px; display:flex; flex-direction:column; gap:12px}
+  .tip{background:#fff; border-radius:18px; padding:16px 18px; box-shadow:var(--shadow-sm); border:1px solid var(--line)}
+  .tip h4{font-family:var(--fh); font-size:14px; margin-bottom:7px; color:var(--blue)}
+  .tip p{font-size:13.5px; line-height:1.5; color:var(--muted)}
+  .controls{display:flex; align-items:center; gap:12px; margin-top:20px; justify-content:center; flex-wrap:wrap}
+  .btn{border:0; cursor:pointer; font:inherit; font-family:var(--fh); font-weight:700; font-size:15px; padding:12px 22px;
+    border-radius:14px; background:linear-gradient(135deg,var(--blue),var(--purple)); color:#fff; box-shadow:0 10px 22px rgba(37,99,235,.30); transition:.18s}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 15px 30px rgba(37,99,235,.38)}
+  .btn.ghost{background:#fff; color:var(--blue); box-shadow:var(--shadow-sm); border:1px solid var(--line)}
+  .btn.ghost:hover{box-shadow:0 12px 24px rgba(15,23,42,.12)}
+  .btn:disabled{opacity:.38; cursor:not-allowed; transform:none; box-shadow:none}
+  /* приглушённая, но РАБОЧАЯ кнопка: нажатие даёт понятное сообщение */
+  .btn.off{opacity:.5}
+  .btn.small{font-size:14px; padding:10px 18px}
+  .counter{font-weight:700; color:var(--muted); font-size:14px; min-width:64px; text-align:center; font-family:var(--fh)}
+  .dots{display:flex; gap:7px; align-items:center}
+  .dots button{width:9px; height:9px; border-radius:50%; border:0; background:#C6D0E2; cursor:pointer; padding:0; transition:.2s}
+  .dots button.on{background:linear-gradient(135deg,var(--blue),var(--pink)); width:28px; border-radius:999px}
+  .toast{position:fixed; left:50%; bottom:28px; transform:translate(-50%,26px); background:#0F172A; color:#fff; font-family:var(--fh);
+    font-weight:600; font-size:14.5px; padding:13px 22px; border-radius:14px; box-shadow:0 18px 40px rgba(15,23,42,.35); opacity:0; pointer-events:none; transition:.28s; z-index:200}
+  .toast.show{opacity:1; transform:translate(-50%,0)}
+  footer{padding:26px 20px; text-align:center; color:var(--muted); font-size:13px}
+  /* ============ ТЁМНАЯ ТЕМА ============
+     Меняем только переменные и те поверхности, где цвет был прописан жёстко (#fff).
+     Класс dark навешивается на body кнопкой 🌙 в шапке и запоминается в localStorage. */
+  body.dark{
+    --bg:#070B18; --ink:#EDF1FF; --body:#C3CDE6; --muted:#8C9AC0;
+    --line:rgba(255,255,255,.13); --card:#0E1428;
+    --shadow:0 26px 64px rgba(0,0,0,.5); --shadow-sm:0 8px 24px rgba(0,0,0,.38);
+    background:
+      radial-gradient(1000px 600px at 92% -14%, rgba(124,58,237,.26), transparent 60%),
+      radial-gradient(880px 560px at -10% 114%, rgba(236,72,153,.18), transparent 60%),
+      #070B18;
+    color:var(--ink)}
+  body.dark header{background:rgba(10,15,30,.86)}
+  body.dark .themeBtn{background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.15); color:#E6ECFF; box-shadow:none}
+  body.dark .back{background:rgba(255,255,255,.07); color:#A9C8FF; border-color:rgba(255,255,255,.14)}
+  body.dark .progress{background:rgba(255,255,255,.11)}
+  body.dark .card{background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.10)}
+  body.dark .script{color:#D8E0FF}
+  body.dark .tip{background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.10)}
+  body.dark .tip h4{color:#A9C8FF}
+  body.dark .tip p{color:var(--muted)}
+  body.dark .btn.ghost{background:rgba(255,255,255,.08); color:#CFE0FF; border-color:rgba(255,255,255,.15)}
+  body.dark .dots button{background:rgba(255,255,255,.24)}
+  body.dark .counter{color:var(--muted)}
+  body.dark .toast{background:#EDF1FF; color:#0F172A}
+  /* полноэкранный режим для показа с телефона/планшета */
+  body:fullscreen, .present:fullscreen{background:#0B1120; display:flex; flex-direction:column; justify-content:center; padding:6vh 6vw; overflow:auto}
+  .present:fullscreen .card{box-shadow:none}
+  .present:fullscreen .script{font-size:clamp(22px,2.6vw,34px); line-height:1.8}
+  .present:fullscreen .side{display:none}
+  @media (max-width:820px){ .side{width:100%} .card{padding:26px 24px} }
+</style>
+</head>
+<body>
+<script>
+  /* Тему применяем сразу, ещё до отрисовки — иначе при тёмной теме мелькнёт светлый фон. */
+  try { if (localStorage.getItem('fizika-theme') === 'dark') document.body.classList.add('dark'); } catch (e){}
+</script>
+<header>
+  <div class="bar">
+    <div class="brand">
+      <div class="logo">
+        <svg width="26" height="26" viewBox="0 0 48 48"><circle cx="24" cy="24" r="4.2" fill="#fff"/><ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="#fff" stroke-width="2"/><ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="#fff" stroke-width="2" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="#fff" stroke-width="2" transform="rotate(120 24 24)"/></svg>
+      </div>
+      <div>Доклад: что говорить<small>Известные физики · 7 класс</small></div>
+    </div>
+    <button class="themeBtn" id="themeBtn" type="button" title="Переключить тему">🌙</button>
+  </div>
+</header>
+
+<main>
+  <div class="progress"><i id="prog"></i></div>
+  <div class="present" id="present">
+    <div class="wrap">
+      <div class="card">
+        <div class="top">
+          <div class="num" id="num">1</div>
+          <div class="title" id="title">Слайд</div>
+        </div>
+        <div class="script" id="script"></div>
+      </div>
+      <aside class="side">
+        <div class="tip"><h4>Как рассказывать</h4><p>Спокойно и не спеша, своими словами. Подглядывай сюда — читать целиком не обязательно.</p></div>
+        <div class="tip"><h4>Структура слайда</h4><p>Имя учёного → почему известен → его работы.</p></div>
+      </aside>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn ghost" id="prev">← Назад</button>
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter">1 / 13</div>
+    <button class="btn" id="next">Вперёд →</button>
+    <button class="btn ghost small" id="fs">⛶ Во весь экран</button>
+  </div>
+</main>
+
+<footer>Текст доклада для выступления · Известные физики · 7 класс</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==================== ТЕКСТ ДОКЛАДА ==================== */
+const slides = [
+  { title:"Обложка — Известные физики",
+    script:"Здравствуйте! Мой доклад называется «Известные физики». Я расскажу, почему эти учёные знамениты и что они сделали для науки. А в конце мы сыграем в игру." },
+  { title:"Кто такие физики?",
+    script:"Физика — это наука о природе. Она объясняет, почему и как всё вокруг нас движется, светит и падает. Физики — это люди, которые задают вопрос «почему?» и ищут ответ с помощью опытов. Сегодня я расскажу про шесть великих физиков, а про одного — Ньютона — расскажу подробнее." },
+  { title:"Архимед (287–212 до н. э.)",
+    script:"Архимед — древнегреческий учёный. Он известен тем, что открыл правило рычага и закон Архимеда — это сила, которая выталкивает тело из воды. Его работы: «О плавающих телах» и «О равновесии плоскостей». Есть легенда: когда он открыл свой закон, то крикнул «Эврика!», что значит «Нашёл!». Сегодня сила Архимеда помогает плавать кораблям и подводным лодкам." },
+  { title:"Галилео Галилей (1564–1642)",
+    script:"Галилей — итальянский учёный. Он известен тем, что изучал движение тел и маятник, открыл инерцию и усовершенствовал телескоп. Он первым увидел горы на Луне и спутники Юпитера. Его главная работа — «Диалог о двух главнейших системах мира». Галилея называют «отцом» экспериментальной физики, потому что он всё проверял опытами." },
+  { title:"Роберт Гук (1635–1703)",
+    script:"Роберт Гук — английский учёный. Он известен законом Гука: сила упругости пружины прямо пропорциональна её растяжению. Проще говоря: чем сильнее растянешь пружину, тем больше она сопротивляется. Его работа — книга «Микрография», где он впервые описал клетки." },
+  { title:"Блез Паскаль (1623–1662)",
+    script:"Паскаль — французский учёный. Он известен тем, что изучал давление жидкостей и газов и открыл закон Паскаля. Его именем назвали единицу давления — паскаль. Его работа — «О равновесии жидкостей». А ещё в девятнадцать лет он изобрёл одну из первых счётных машин." },
+  { title:"Михаил Ломоносов (1711–1765)",
+    script:"Ломоносов — русский учёный. Он известен тем, что открыл закон сохранения массы веществ и изучал, что все тела состоят из молекул. Это первый русский учёный-энциклопедист: он занимался физикой, химией, астрономией и даже поэзией. Он основал Московский университет." },
+  { title:"Альберт Эйнштейн (1879–1955)",
+    script:"Эйнштейн — физик двадцатого века. Он известен теорией относительности и формулой «E равно mc квадрат», которая показывает связь массы и энергии. Нобелевскую премию он получил за объяснение фотоэффекта. Он изменил наши представления о пространстве и времени." },
+  { title:"Переход: Исаак Ньютон",
+    script:"А теперь я расскажу подробнее про одного учёного — про Исаака Ньютона. Он считается самым великим физиком в истории." },
+  { title:"Кто такой Ньютон?",
+    script:"Исаак Ньютон жил в Англии с тысяча шестьсот сорок третьего по тысяча семьсот двадцать седьмой год. Он был физиком, математиком и астрономом, учился в Кембриджском университете. Есть легенда: Ньютон сидел под деревом, ему на голову упало яблоко, и он задумался — почему все тела падают вниз? Так он пришёл к идее всемирного тяготения." },
+  { title:"Почему Ньютон известен?",
+    script:"Ньютон известен тремя законами движения. Первый закон: если на тело не действуют другие тела, оно покоится или движется равномерно и прямолинейно — это называется инерцией. Второй закон: сила равна массе, умноженной на ускорение, то есть «F равно m умножить на a». Третий закон: действие всегда равно противодействию. И ещё Ньютон открыл закон всемирного тяготения — все тела притягиваются друг к другу." },
+  { title:"Главная работа Ньютона",
+    script:"Главная работа Ньютона — книга «Математические начала натуральной философии», она вышла в тысяча шестьсот восемьдесят седьмом году. В ней он описал три закона движения и закон тяготения. Кроме этого, Ньютон разложил белый свет в спектр — то есть в радугу — и построил первый зеркальный телескоп." },
+  { title:"Финал",
+    script:"Вот и всё. Физика — это очень интересно! А теперь давайте сыграем в «Свою игру». Спасибо за внимание!" }
+];
+
+/* ==================== СОСТОЯНИЕ ==================== */
+let cur = 0;
+
+/* ==================== УТИЛИТЫ ==================== */
+const $ = id => document.getElementById(id);
+let toastTimer = null;
+function toast(msg){
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ==================== ТЕМА: СВЕТЛАЯ / ТЁМНАЯ ==================== */
+const THEME_KEY = 'fizika-theme';   /* тот же ключ, что в презентации — тема общая */
+let theme = 'light';
+function applyTheme(t){
+  theme = (t === 'dark') ? 'dark' : 'light';
+  document.body.classList.toggle('dark', theme === 'dark');
+  const b = $('themeBtn');
+  if (b){
+    b.textContent = theme === 'dark' ? '☀️' : '🌙';
+    b.title = theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему';
+  }
+}
+function toggleTheme(){
+  applyTheme(theme === 'dark' ? 'light' : 'dark');
+  /* на file:// localStorage может быть недоступен — тогда тема просто не запомнится */
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e){}
+  toast(theme === 'dark' ? 'Тёмная тема включена' : 'Светлая тема включена');
+}
+function loadTheme(){
+  let t = 'light';
+  try { const s = localStorage.getItem(THEME_KEY); if (s === 'dark' || s === 'light') t = s; } catch (e){}
+  applyTheme(t);
+}
+loadTheme();
+
+/* Кнопку подключаем сразу через делегирование — чтобы она работала, даже если
+   что-то ниже по скрипту упадёт. */
+document.addEventListener('click', e => {
+  const t = e.target;
+  if (t && t.closest && t.closest('#themeBtn')) toggleTheme();
+});
+
+/* ==================== РЕНДЕР ==================== */
+const dotsEl = $('dots');
+dotsEl.innerHTML = slides.map((_,i)=>`<button data-go="${i}" class="${i===0?'on':''}" aria-label="Слайд ${i+1}"></button>`).join('');
+
+function update(){
+  const s = slides[cur];
+  $('num').textContent = cur+1;
+  $('title').textContent = s.title;
+  $('script').textContent = s.script;
+  $('counter').textContent = (cur+1)+' / '+slides.length;
+  $('prog').style.width = ((cur+1)/slides.length*100)+'%';
+  /* Стрелки НЕ выключаем через disabled: выключенная кнопка молчит при нажатии,
+     и это выглядит как поломка. Вместо этого — приглушаем и объясняем словами. */
+  $('prev').classList.toggle('off', cur===0);
+  $('next').classList.toggle('off', cur===slides.length-1);
+  dotsEl.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on', i===cur));
+}
+function goNext(){
+  if(cur<slides.length-1){ cur++; update(); return; }
+  toast('Это последний шаг — дальше некуда');
+}
+function goPrev(){
+  if(cur>0){ cur--; update(); return; }
+  toast('Это первый шаг — назад некуда');
+}
+function goTo(i){ cur=i; update(); }
+
+/* ==================== СОБЫТИЯ ==================== */
+$('next').onclick = goNext;
+$('prev').onclick = goPrev;
+dotsEl.onclick = e=>{ const b=e.target.closest('button'); if(b) goTo(+b.dataset.go); };
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight') goNext();
+  if(e.key==='ArrowLeft') goPrev();
+});
+$('fs').onclick = ()=>{
+  const el = $('present');
+  if(document.fullscreenElement){ document.exitFullscreen(); }
+  else if(el.requestFullscreen){ el.requestFullscreen(); }
+  else if(el.webkitRequestFullscreen){ el.webkitRequestFullscreen(); }
+};
+document.addEventListener('fullscreenchange', ()=>{
+  $('fs').textContent = document.fullscreenElement ? '⛶ Выйти' : '⛶ Во весь экран';
+});
+
+update();
+</script>
+
+<!-- ============================================================
+     СЧЁТЧИК ОНЛАЙНА (общий для всех трёх сайтов проекта)
+     ------------------------------------------------------------
+     Отправляет отметку о посещении на бесплатный счётчик abacus.
+     Стоит ОТДЕЛЬНЫМ блоком в самом конце страницы: если счётчик
+     недоступен или сети нет — сайт работает как обычно.
+     Итоги смотри на панели: сайт fizika-online.
+     ============================================================ -->
+<script>
+(function(){
+  var SITE_ID = 'doklad';                  /* prez | doklad | otvety */
+  var NS  = 'fizika-izvestnye-fiziki-81';
+  var API = 'https://abacus.jasoncameron.dev';
+
+  try {
+    if (typeof fetch !== 'function') return;      /* старый браузер — просто пропускаем */
+
+    /* московское время, чтобы «сегодня» и «этот час» у всех совпадали */
+    var stamp = function(offsetMin){
+      var t = new Date(Date.now() + 3*3600*1000 + (offsetMin||0)*60000);
+      var p = function(n){ return String(n).padStart(2,'0'); };
+      var day  = String(t.getUTCFullYear()) + p(t.getUTCMonth()+1) + p(t.getUTCDate());
+      var hour = day + p(t.getUTCHours());
+      return { day: day, hour: hour, minute: hour + p(t.getUTCMinutes()) };
+    };
+    var hit = function(key){
+      try { fetch(API + '/hit/' + NS + '/' + key, { cache:'no-store' }).catch(function(){}); }
+      catch (e) { /* нет сети — не мешаем сайту */ }
+    };
+    var beat = function(){ hit('m-' + SITE_ID + '-' + stamp(0).minute); };
+
+    var s = stamp(0);
+    hit('v-' + SITE_ID);                     /* всего открытий */
+    hit('d-' + SITE_ID + '-' + s.day);       /* открытий за сегодня */
+    hit('h-' + SITE_ID + '-' + s.hour);      /* открытий за этот час */
+    beat();                                  /* отметка «я тут» */
+
+    /* пока вкладка открыта — каждые 30 секунд подтверждаем, что мы онлайн */
+    setInterval(function(){ if (!document.hidden) beat(); }, 30000);
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) beat(); });
+  } catch (e) { /* счётчик ни при каких условиях не должен ломать сайт */ }
+})();
+</script>
+</body>
+</html>
